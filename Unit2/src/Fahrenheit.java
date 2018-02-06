@@ -24,6 +24,6 @@ public class Fahrenheit
 	public void print()
 	{
 		//this is part of the solution
-		System.out.println(fahrenheit + " degrees Fahrenheit == " + getCelsius() + " degrees Celsius");
+		System.out.println(fahrenheit + " degrees Fahrenheit == " + String.format("%.3f", getCelsius()) + " degrees Celsius");
 	}
 }
