@@ -15,11 +15,24 @@ public class Lab10e
 		char response;
 		
 		System.out.println("Guessing Game - how many numbers?");
-		response = keyboard.next().charAt(0);
+		response = (char) keyboard.nextInt();
 		
 		GuessingGame test = new GuessingGame(response);
 		
 		test.playGame();
+		System.out.println(test.toString());
+		
+		while(response != 'n')
+		{
+			System.out.println("Do you want to play again?");
+			response = keyboard.next().charAt(0);
+			if(response == 'n') break;
+			System.out.println("Guessing Game - how many numbers?");
+			response = (char) keyboard.nextInt();
+			test.setBound(response);
+			test.playGame();
+			System.out.println(test.toString());
+		}
 
 
 

@@ -13,24 +13,35 @@ public class TriangleThree
 
 	public TriangleThree()
 	{
+		setTriangle("A", 0);
 	}
 
 	public TriangleThree(int count, String let)
 	{
+		setTriangle(let, count);
 	}
 
 	public void setTriangle( String let, int sz )
 	{
+		letter = let;
+		size = sz;
 	}
 
 	public String getLetter()
 	{
-		return "#";
+		return letter;
 	}
 
 	public String toString()
 	{
 		String output="";
+		for(int i = 0; i <= size; i++){
+			for(int j = 0; j < size - i; j++)
+				output = output + " ";
+			for(int k = 0; k < i; k++)
+				output = output + letter;
+			output = output + "\n";
+		}
 		return output+"\n";
 	}
 }

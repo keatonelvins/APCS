@@ -1,0 +1,60 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.lang.System;
+import java.lang.Math;
+import java.util.Scanner;
+
+public class Grades
+{
+	//instance variables
+	private static int[] grades;
+	
+	//constructor
+	public Grades()
+	{
+		int[] a = {0};
+		setGrades(a);
+	}
+	
+	public Grades(int l, int[] x)
+	{
+		int[] a = new int[l];
+		a = x;
+		setGrades(a);
+	}
+
+	//set method
+	public static void setGrades(int a[])
+	{
+		grades = a;
+	}
+
+
+	private double getSum()
+	{
+		double sum=0.0;
+		for(int i = 0; i < grades.length; i++)
+			sum = sum + grades[i];
+		return sum;
+	}
+
+	public double getAverage()
+	{
+		double average = getSum() / (grades.length - 1);
+		return average;
+	}
+
+
+	//toString method
+	public String toString()
+	{
+		String output = "";
+		return output;
+	}
+
+
+}

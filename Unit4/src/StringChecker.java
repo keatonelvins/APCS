@@ -27,8 +27,7 @@ public class StringChecker
 
 	public boolean findLetter(char c)
 	{
-		for (char letter : word.toCharArray()){
-			if(letter == c)
+		if(word.indexOf(c) >= 0){
 				return true;
 		}
 		return false;
@@ -36,9 +35,7 @@ public class StringChecker
 
 	public boolean findSubString(String s)
 	{
-		int i = -1;
-		i = word.indexOf(s, 0);
-		if ( i > -1)
+		if ( word.indexOf(s) > -1)
 			return true;
 		return false;
 	}
