@@ -34,7 +34,10 @@ public class LetterRemover
 		int loc = cleaned.indexOf(lookFor);
 		
 		while(loc >= 0){
-			cleaned = cleaned.substring(0, loc) + cleaned.substring(loc + 1);
+			if(loc + 1 == cleaned.length())
+				cleaned = cleaned.substring(0, loc);
+			else
+				cleaned = cleaned.substring(0, loc) + cleaned.substring(loc + 1);
 			loc = cleaned.indexOf(lookFor);
 		}
 		return cleaned;

@@ -36,18 +36,24 @@ public class RomanNumeral
 				num -= NUMBERS[i];
 			}
 		}
-		number = num;
 	}
 
 	public void setRoman(String rom)
 	{
-		number = 0; int temp = 0;
-		while(rom.length() > 0){
-			for(int i = 0; i < LETTERS.length; i++){
-				temp = rom.indexOf(LETTERS[i]);
-				number += NUMBERS[i];
+		int num = 0;
+		for(int i = 0; i < LETTERS.length; i++){
+			if(rom.indexOf(LETTERS[i]) == 0){
+				num += NUMBERS[i];
+				if(rom.length() == 1)
+					rom = "";
+				else if(LETTERS[i].length() == 2)
+					rom = rom.substring(rom.indexOf(LETTERS[i]) + 2);
+				else
+					rom = rom.substring(rom.indexOf(LETTERS[i]) + 1);
+				i--;
 			}
 		}
+		number = num;
 	}
 
 	public Integer getNumber()

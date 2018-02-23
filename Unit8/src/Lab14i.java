@@ -12,7 +12,7 @@ public class Lab14i
 	{
 		RomanNumeral test = new RomanNumeral(10);
 		out.println("10 is " + test.toString());
-
+		
 		test.setNumber(100);
 		out.println("100 is " + test.toString());
 
@@ -33,7 +33,7 @@ public class Lab14i
 
 		test.setNumber(49);
 		out.println("49 is " + test.toString());
-
+	
 		test.setRoman("LXXVII");
 		out.println("LXXVII is " + test.getNumber() + "\n");
 
@@ -43,7 +43,7 @@ public class Lab14i
 		test.setRoman("XX");
 		out.println("XX is " + test.getNumber() + "\n");
 
-		test.setRoman("XLIX");
-		out.println("XLIX is " + test.getNumber() + "\n");
+		test.setRoman("MCMDCDCXCLXLXIXVIVI");
+		out.println("MCMDCDCXCLXLXIXVIVI is " + test.getNumber() + "\n");
 	}
 }

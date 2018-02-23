@@ -24,7 +24,7 @@ public class Lab09f
 		System.out.println(test.toString());
 		System.out.println(test.removeLetters() + "\n");
 		
-		test.setRemover("abababababa", 'b');
+		test.setRemover("abababababb", 'b');
 		System.out.println(test.toString());
 		System.out.println(test.removeLetters() + "\n");
 		
