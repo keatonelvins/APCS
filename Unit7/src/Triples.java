@@ -47,7 +47,7 @@ public class Triples
 					if(Math.pow(a, 2)+ Math.pow(b, 2)== Math.pow(c, 2)){
 						if((a%2==1 && b%2==0) || (a%2==0 && b%2==1)){
 							if(c%2 == 1){
-								if(greatestCommonFactor(a, b, c) <= 1){
+								if(greatestCommonFactor(a, b, c) == 1){
 									output = output + a + " " + b + " " + c + "\n";
 								}
 							}
