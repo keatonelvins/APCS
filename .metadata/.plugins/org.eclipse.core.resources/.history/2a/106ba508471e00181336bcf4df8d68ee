@@ -1,0 +1,47 @@
+
+public class LabAssessment {
+
+	public static void main(String[] args)
+	{
+		isGoofy(12);
+	}
+	
+	public static boolean isGoofy(int num)
+	{
+		int length = 0;
+		int sum = 0;
+		int digit = num;
+		for(int i = 1; i < num; i *= 10){
+			if( num % i < num)
+				length++;
+		}
+		for(int i = 1; i < length + 1; i ++){
+			for(int j = 1; j <= Math.pow(10, i); j *= 10){
+				digit = digit - (num % j);
+				System.out.println(digit);
+			}
+			if(num % digit == 0)
+				sum += digit;
+		}
+		System.out.println(sum);
+		
+		if(sum % 2 == 1)
+			return true;
+		return false;
+	}
+	
+	public static int[] getSomeGoofyNumbers(int count)
+	{
+		int i = 1;
+		int index = 0;
+		int[] goofyArray = new int[count - 1];
+		while(goofyArray[count - 1] == 0){
+			if(isGoofy(i)){
+				goofyArray[index] = i;
+				index++;
+			}
+			i++;
+		}
+		return goofyArray;
+	}
+}

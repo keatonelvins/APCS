@@ -40,10 +40,10 @@ public class RomanNumeral
 
 	public void setRoman(String rom)
 	{
-		int num = 0;
+		number = 0;
 		for(int i = 0; i < LETTERS.length; i++){
 			if(rom.indexOf(LETTERS[i]) == 0){
-				num += NUMBERS[i];
+				number += NUMBERS[i];
 				if(rom.length() == 1)
 					rom = "";
 				else if(LETTERS[i].length() == 2)
@@ -53,7 +53,6 @@ public class RomanNumeral
 				i--;
 			}
 		}
-		number = num;
 	}
 
 	public Integer getNumber()

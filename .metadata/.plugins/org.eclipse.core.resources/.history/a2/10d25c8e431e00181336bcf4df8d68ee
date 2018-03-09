@@ -1,0 +1,14 @@
+
+public class LabAssessment {
+
+	public static void main(String[] args)
+	{
+		System.out.println("Test");
+	}
+	
+	public static int method()
+	{
+		return 1;
+	}
+	
+}

@@ -1,0 +1,25 @@
+
+public class LabAssessment {
+
+	public static void main(String[] args)
+	{
+		isGoofy(123564);
+	}
+	
+	public static boolean isGoofy(int num)
+	{
+		int length = 0;
+		for(int i = 1; i < num; i *= 10){
+			if( num % i < num)
+				length++;
+		}
+		System.out.println(length);
+		int digit = num % 10;
+		return true;
+	}
+	
+	public static int[] getSomeGoofyNumbers(int count)
+	{
+		
+	}
+}
