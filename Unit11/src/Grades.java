@@ -5,13 +5,15 @@
 //Lab  -
 
 import java.util.Arrays;
+
 import java.util.Scanner;
+import java.util.ArrayList;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
 public class Grades
 {
-	private Grade[] gradeList;
+	private ArrayList<Grade> gradeList;
 	
 	public Grades()
 	{
@@ -27,55 +29,55 @@ public class Grades
 	{
 		Scanner chopper = new Scanner(grades);
 		int length = chopper.nextInt();
-		gradeList = new Grade[length];
+		gradeList = new ArrayList<Grade>(length);
 		chopper.next();
 		for(int i = 0; i < length; i ++){
 			double newGrade = chopper.nextDouble();
-			gradeList[i] = new Grade(newGrade);
+			gradeList.add(i, new Grade(newGrade));
 		}
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-		gradeList[spot] = new Grade(grade);
+		gradeList.add(spot, new Grade(grade));
 	}
 	
 	public double getSum()
 	{
 		double sum=0.0;
-		for(int i = 0; i < gradeList.length; i++)
-			sum += gradeList[i].getNumericGrade();
+		for(int i = 0; i < gradeList.size(); i++)
+			sum += gradeList.get(i).getNumericGrade();
 		return sum;
 	}
 	
 	public double getLowGrade()
 	{
 		double low = Double.MAX_VALUE;
-		for(int i = 0; i < gradeList.length; i++)
-			if(gradeList[i].getNumericGrade() < low)
-				low = gradeList[i].getNumericGrade();
+		for(int i = 0; i < gradeList.size(); i++)
+			if(gradeList.get(i).getNumericGrade() < low)
+				low = gradeList.get(i).getNumericGrade();
 		return low;
 	}
 	
 	public double getHighGrade()
 	{
 		double high = Double.MIN_VALUE;
-		for(int i = 0; i < gradeList.length; i++)
-			if(gradeList[i].getNumericGrade() > high)
-				high = gradeList[i].getNumericGrade();
+		for(int i = 0; i < gradeList.size(); i++)
+			if(gradeList.get(i).getNumericGrade() > high)
+				high = gradeList.get(i).getNumericGrade();
 		return high;
 	}
 	
 	public int getNumGrades()
 	{
-		return gradeList.length;
+		return gradeList.size();
 	}
 	
 	public String toString()
 	{
 		String output = "";
-		for(int i = 0; i < gradeList.length; i++)
-			output += gradeList[i].getNumericGrade() + " ";
+		for(int i = 0; i < gradeList.size(); i++)
+			output += gradeList.get(i).getNumericGrade() + " ";
 		return output;
 	}	
 }
