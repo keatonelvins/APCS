@@ -1,0 +1,10 @@
+
+public class Test {
+
+	public static void main(String[] args){
+		String a = "abcdef";
+		String b = a;
+		a = null;
+		System.out.print(b);
+	}
+}
