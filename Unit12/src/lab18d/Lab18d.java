@@ -36,7 +36,7 @@ public class Lab18d
 		while(wordList.size() > 0){
 			min = 0;
 			for(int i = 0; i < wordList.size(); i++){
-				if(wordList.get(i).toString().length() < wordList.get(min).toString().length())
+				if(wordList.get(i).compareTo(wordList.get(min)) == -1)
 					min = i;
 			}
 			out.println(wordList.get(min));

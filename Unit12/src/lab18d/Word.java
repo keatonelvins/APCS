@@ -21,8 +21,14 @@ public class Word implements Comparable<Word>
 	{
 		if(word.length() > rhs.toString().length())
 			return 1;
-		if(word.length() == rhs.toString().length())
-			return 0;
+		if(word.length() == rhs.toString().length()){
+			for(int i = 0; i < word.length(); i++){
+				if(word.charAt(i) < rhs.toString().charAt(i))
+					return -1;
+				if(word.charAt(i) > rhs.toString().charAt(i))
+					return 1;
+			}
+		}
 		if(word.length() < rhs.toString().length())
 			return -1;
 		return 0;
