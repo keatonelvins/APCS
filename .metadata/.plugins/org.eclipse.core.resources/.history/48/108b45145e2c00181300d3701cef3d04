@@ -34,12 +34,7 @@ public class Word18e implements Comparable<Word18e>
 		if(numVowels() > rhs.numVowels())
 			return 1;
 		if(numVowels() == rhs.numVowels())
-			for(int i = 0; i < word.length(); i++){
-				if(word.charAt(i) < rhs.toString().charAt(i))
-					return -1;
-				if(word.charAt(i) > rhs.toString().charAt(i))
-					return 1;
-			}
+			return 0;
 		if(numVowels() < rhs.numVowels())
 			return -1;
 		return 0;

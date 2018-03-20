@@ -39,7 +39,7 @@ public class Lab18e
 		while(wordList.size() > 0){
 			min = 0;
 			for(int i = 0; i < wordList.size(); i++){
-				if(wordList.get(i).compareTo(wordList.get(min)) == -1)
+				if(wordList.get(i).numVowels() < wordList.get(min).numVowels())
 					min = i;
 			}
 			out.println(wordList.get(min));
