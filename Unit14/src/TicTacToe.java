@@ -19,9 +19,11 @@ public class TicTacToe
 	public TicTacToe(String game)
 	{
 		mat = new char[3][3];
+		int spot = 0;
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
-				mat[i][j] = game.charAt((i*3) + j);
+				mat[i][j] = game.charAt(spot);
+				spot++;
 			}
 		}
 	}
