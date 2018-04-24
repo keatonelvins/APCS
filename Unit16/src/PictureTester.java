@@ -26,6 +26,24 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testKeepOnlyRed()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroBlue();
+    beach.zeroGreen();
+    beach.explore();
+  }
+  
+  public static void testKeepOnlyGreen()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.zeroRed();
+    beach.zeroBlue();
+    beach.explore();
+  }
+  
   public static void testNegate()
   {
     Picture beach = new Picture("beach.jpg");
@@ -39,6 +57,14 @@ public class PictureTester
     Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.grayscale();
+    beach.explore();
+  }
+  
+  public static void testFixUnderwater()
+  {
+    Picture beach = new Picture("water.jpg");
+    beach.explore();
+    beach.fixUnderwater();
     beach.explore();
   }
   
@@ -100,6 +126,14 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorDiagonal()
+  {
+    Picture temple = new Picture("beach.jpg");
+    temple.explore();
+    temple.mirrorDiagonal();
+    temple.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -141,7 +175,7 @@ public class PictureTester
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
+    testNegate();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
@@ -154,7 +188,7 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopyCollage();
-	testMyCollage();
+	//testMyCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();

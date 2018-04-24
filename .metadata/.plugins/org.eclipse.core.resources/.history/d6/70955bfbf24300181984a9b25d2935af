@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Aliens {
+	
+	private ArrayList<Alien> aliens;
+	
+	public Aliens(){
+		aliens = new ArrayList<Alien>();
+	}
+	
+	public void add(Alien a){
+		aliens.add(a);
+	}
+	
+	public void remove(Alien a){
+		aliens.remove(a);
+	}
+	
+	public ArrayList<Alien> getList(){
+		return aliens;
+	}
+}

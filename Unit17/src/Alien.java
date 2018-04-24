@@ -31,31 +31,49 @@ public class Alien extends MovingThing
 		speed=s;
 		try
 		{
-			image = ImageIO.read(new File("alien.jpg"));
+			image = ImageIO.read(new File("H://APCS//Unit17//Assignments-starfighter//alien.jpg"));
 		}
 		catch(Exception e)
 		{
-			//feel free to do something here
+			System.out.print("Error");
 		}
 	}
 
 	public void setSpeed(int s)
 	{
-	   //add code
+	   speed = s;
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
+	}
+	
+	public void move(String direction)
+	{
+		if(direction.equals("LEFT"))
+	      setX(getX()-getSpeed());
+		if(direction.equals("RIGHT"))
+		  setX(getX()+getSpeed());
+		if(direction.equals("UP"))
+		  setY(getY()+getSpeed());
+		if(direction.equals("DOWN"))
+		  setY(getY()-getSpeed());
+	}
+	
+	public void drop(){
+		setY(getY()+75);
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),80,80,null);
+		window.drawImage(image,getX(),getY(),80,80,null);
+		//window.setColor(Color.YELLOW);
+		//window.drawRect(getX()+15, getY()+15, 53, 60);
 	}
 
 	public String toString()
 	{
-		return "";
+		return super.toString() + getSpeed();
 	}
 }

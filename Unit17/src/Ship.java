@@ -31,28 +31,29 @@ public class Ship extends MovingThing
 		speed=s;
 		try
 		{
-			image = ImageIO.read(new File("ship.jpg"));
+			image = ImageIO.read(new File("H://APCS//Unit17//Assignments-starfighter//ship.jpg"));
 		}
 		catch(Exception e)
 		{
-			//feel free to do something here
+			System.out.print("Error");
 		}
 	}
 
-
 	public void setSpeed(int s)
 	{
-	   //add more code
+	   speed = s;
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),80,80,null);
+		window.drawImage(image,getX(),getY(),80,80,null);
+		//window.setColor(Color.YELLOW);
+		//window.drawRect(getX()+15, getY()+15, 50, 60);
 	}
 
 	public String toString()

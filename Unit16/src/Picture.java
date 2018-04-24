@@ -151,6 +151,18 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(pixelObj.getRed() + 150);
+      }
+    }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -288,6 +300,27 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void mirrorDiagonal()
+  {
+    Pixel firstPixel = null;
+    Pixel secondPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    int mirrorPoint = pixels.length;
+    
+    // loop through the rows
+    for (int row = 0; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 0; col < mirrorPoint; col++)
+      {
+        
+        firstPixel = pixels[row][col];      
+        secondPixel = pixels[mirrorPoint-col-1][mirrorPoint-row-1];
+        secondPixel.setColor(firstPixel.getColor());
+      }
+    }
+  }
+  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -319,15 +352,15 @@ public class Picture extends SimplePicture
     }   
   }
   
-  public void copy(Picture fromPic, int startRow, int startCol, int endRow, int endColumn)
+  public void copy2(Picture fromPic, int startRow, int startCol, int endRow, int endCol)
   {
 	  Pixel fromPixel = null;
 	  Pixel toPixel = null;
 	  Pixel[][] toPixels = this.getPixels2D();
 	  Pixel[][] fromPixels = fromPic.getPixels2D();
-	  for (int fromRow = 0, toRow = startRow; fromRow < endRow && toRow < endRow; fromRow++, toRow++)
+	  for (int fromRow = 0, toRow = startRow; fromRow < fromPixels.length && toRow < endRow; fromRow++, toRow++)
 	  {
-		  for (int fromCol = 0, toCol = startCol; fromCol < endColumn && toCol < endColumn;  fromCol++, toCol++)
+		  for (int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length && toCol < endCol;  fromCol++, toCol++)
 		  {
 			  fromPixel = fromPixels[fromRow][fromCol];
 			  toPixel = toPixels[toRow][toCol];
@@ -375,14 +408,13 @@ public class Picture extends SimplePicture
   {
     Picture flower1 = new Picture("flower1.jpg");
     Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0,50,10);
-    this.copy(flower2,100,0,50,50);
-    this.copy(flower1,200,0,5,15);
+    this.copy2(flower1,0,0,100,100);
+    this.copy2(flower2,100,0,200,100);
+    this.copy2(flower1,200,0,300,100);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
+    this.copy2(flowerNoBlue,300,0,400,100);
+    //this.copy2(flower1,400,0,500,100);
     this.mirrorVertical();
     this.write("collage.jpg");
   }
